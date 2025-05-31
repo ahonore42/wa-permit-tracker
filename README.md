@@ -1,4 +1,8 @@
+
 # Thurston County Permit Tracker
+<img height="300" src="./public/thurstoncounty.webp">
+
+
 Permit tool for compliance and document management for contractors and homeowners in the Thurston County region of WA.
 
 ## Features
@@ -11,8 +15,8 @@ Permit tool for compliance and document management for contractors and homeowner
 
 ## Technical Architecture:
 
-- MVP focuses on core deadline tracking (biggest pain point)
 - Scalable - PostgreSQL + Next.js allows rapid iteration then enterprise features
+- MVP focuses on core deadline tracking (biggest pain point)
 - Data-Driven - Built-in analytics to prove ROI to contractors
 - Mobile-First - Contractors need field access to project status
 
