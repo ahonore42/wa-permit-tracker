@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Property {
+  id          String   @id @default(cuid())
+  address     String
+  parcelId    String?  @unique
+  latitude    Float?
+  longitude   Float?
+  zoning      String?
+  jurisdiction String  // County, Lacey, Olympia, etc.
+  criticalAreas Json?  // GIS data for critical areas within 400ft
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  projects    Project[]
+  
+  @@map("properties")
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  name          String
+  description   String?
+  projectType   String   // Residential, Commercial, etc.
+  permitType    String   // Building, Septic, etc.
+  status        String   // Planning, Submitted, Under Review, etc.
+  
+  // Property relationship
+  propertyId    String
+  property      Property @relation(fields: [propertyId], references: [id])
+  
+  // Key dates
+  createdAt     DateTime @default(now())
+  submittedAt   DateTime?
+  deadlineAt    DateTime? // 180-day abandonment deadline
+  permitExpiry  DateTime? // 365-day permit expiration
+  
+  // Jurisdiction info
+  jurisdiction  String
+  permitOffice  String?
+  
+  deadlines     Deadline[]
+  documents     Document[]
+  
+  @@map("projects")
+}
+
+model Deadline {
+  id          String   @id @default(cuid())
+  type        String   // "abandonment", "permit_expiry", "inspection"
+  date        DateTime
+  description String
+  isActive    Boolean  @default(true)
+  notified    Boolean  @default(false)
+  
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  
+  @@map("deadlines")
+}
+
+model Document {
+  id          String   @id @default(cuid())
+  name        String
+  type        String   // "application", "plan", "report"
+  status      String   // "required", "submitted", "approved"
+  fileUrl     String?
+  
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("documents")
+}
