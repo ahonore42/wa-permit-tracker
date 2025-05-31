@@ -21,9 +21,65 @@ Permit tool for compliance and document management for contractors and homeowner
 - Mobile-First - Contractors need field access to project status
 
 ## Database
-Hosted with neon.tech.
+Hosted with neon.tech and managed with PrismaORM.
 
 - [Instance Link](https://console.neon.tech/app/projects/orange-art-65847270)
+
+<details><summary>Prisma ORM Reference</summary>
+
+  ### Prisma Migration Quick Reference
+
+  #### Essential Commands
+
+  ```bash
+  # Create and apply migration
+  npx prisma migrate dev --name <migration-name>
+
+  # Apply pending migrations (production)
+  npx prisma migrate deploy
+
+  # Reset database (destroys all data)
+  npx prisma migrate reset
+
+  # Check migration status
+  npx prisma migrate status
+  ```
+
+  #### Common Workflows
+
+  **Initial Setup**
+  ```bash
+  npx prisma migrate dev --name init
+  ```
+
+  **Schema Changes**
+  1. Edit `schema.prisma`
+  2. `npx prisma migrate dev --name <description>`
+
+  **Production Deploy**
+  ```bash
+  npx prisma migrate deploy
+  ```
+
+  #### Fix Drift Issues
+
+  ```bash
+  # Option 1: Reset (dev only)
+  npx prisma migrate reset
+
+  # Option 2: Mark as resolved
+  npx prisma migrate resolve --applied <migration-name>
+
+  # Option 3: Pull current schema
+  npx prisma db pull
+  ```
+
+  #### Always After Migration
+  ```bash
+  npx prisma generate
+  ```
+
+</details>
 
 ## Frontend
 Hosted with Netlify.
