@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Property {
-  id          String   @id @default(cuid())
+  id          String   @id @default(uuid())
   address     String
   parcelId    String?  @unique
   latitude    Float?
@@ -25,7 +25,7 @@ model Property {
 }
 
 model Project {
-  id            String   @id @default(cuid())
+  id            String   @id @default(uuid())
   name          String
   description   String?
   projectType   String   // Residential, Commercial, etc.
@@ -53,7 +53,7 @@ model Project {
 }
 
 model Deadline {
-  id          String   @id @default(cuid())
+  id          String   @id @default(uuid())
   type        String   // "abandonment", "permit_expiry", "inspection"
   date        DateTime
   description String
@@ -69,7 +69,7 @@ model Deadline {
 }
 
 model Document {
-  id          String   @id @default(cuid())
+  id          String   @id @default(uuid())
   name        String
   type        String   // "application", "plan", "report"
   status      String   // "required", "submitted", "approved"
