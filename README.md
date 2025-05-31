@@ -1,2 +1,54 @@
 # Thurston County Permit Tracker
 Permit tool for compliance and document management for contractors and homeowners in the Thurston County region of WA.
+
+## Features
+
+- Property Lookup + GIS Integration** → Eliminates critical areas confusion
+- Smart Checklist Generator → Prevents incomplete application rejections
+- Deadline Calculation Engine → Stops 180/365-day deadline disasters
+- Multi-Jurisdiction Router → Handles County + 6 cities seamlessly
+- Notification System → Proactive alerts before problems occur
+
+## Technical Architecture:
+
+- MVP focuses on core deadline tracking (biggest pain point)
+- Scalable - PostgreSQL + Next.js allows rapid iteration then enterprise features
+- Data-Driven - Built-in analytics to prove ROI to contractors
+- Mobile-First - Contractors need field access to project status
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
