@@ -24,3 +24,44 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Permit tracker specific styles */
+.urgent-deadline {
+  @apply bg-red-100 dark:bg-red-900/20 border-red-300 dark:border-red-700 text-red-800 dark:text-red-300;
+}
+
+.warning-deadline {
+  @apply bg-yellow-100 dark:bg-yellow-900/20 border-yellow-300 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300;
+}
+
+.normal-deadline {
+  @apply bg-green-100 dark:bg-green-900/20 border-green-300 dark:border-green-700 text-green-800 dark:text-green-300;
+}
+
+.jurisdiction-card {
+  @apply bg-black/[.05] dark:bg-white/[.06] rounded-lg p-6 border border-black/[.08] dark:border-white/[.145];
+}
+
+.permit-status-badge {
+  @apply px-2 py-1 rounded text-xs font-medium;
+}
+
+.status-planning {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300;
+}
+
+.status-submitted {
+  @apply bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-300;
+}
+
+.status-under-review {
+  @apply bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-300;
+}
+
+.status-approved {
+  @apply bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-300;
+}
+
+.status-rejected {
+  @apply bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-300;
+}
